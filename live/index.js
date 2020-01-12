@@ -2,7 +2,7 @@
 const app = require('express')();
 const bodyParser = require('body-parser')
 const router = require('./api/router');
-const port = 3000;
+const port = 8080;
 const cors = require('cors');
 
 /* initialize api routes */
