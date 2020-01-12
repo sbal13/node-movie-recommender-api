@@ -1,0 +1,22 @@
+{
+  "name": "movie-recommender-api",
+  "version": "1.0.0",
+  "description": "Movie Recommender API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbal13/node-movie-recommender-api.git"
+  },
+  "author": "Saiven Kandalasta",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sbal13/node-movie-recommender-api/issues"
+  },
+  "homepage": "https://github.com/sbal13/node-movie-recommender-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
