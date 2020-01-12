@@ -20,9 +20,24 @@ class MoviesController {
         success: true,
         movies: movies
       });
-    })
-    return 
+    });
   }
+  static async getMovieByTitle(req, res, next) {
+    console.log(req.params);
+    Movie.findAll({
+    where: {
+    title: req.params.title
+  }
+  })
+    .then(movie => {
+      res.status(200).json({
+        status: 200,
+        success: true,
+        movies: movie
+      });
+    });
+  }
+
   static async postMovies(req, res, next) {
     console.log(req.body)
     Movie.create(req.body)
@@ -32,7 +47,7 @@ class MoviesController {
         success: true,
         movie: movie
       })
-    }) 
+    })
   }
 }
 
