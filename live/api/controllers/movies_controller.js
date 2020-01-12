@@ -1,6 +1,8 @@
 /**
  * Movies Controller
  */
+const { Movie } = require('../db/sequelize.js')
+
 class MoviesController {
   /**
    * Get all movies
@@ -11,11 +13,26 @@ class MoviesController {
    * @returns {Promise<void>}
    */
   static async getMovies(req, res, next) {
-    return res.status(200).json({
-        message: 'Movies Test',
+    Movie.findAll()
+    .then(movies => {
+      res.status(200).json({
         status: 200,
-        success: true
+        success: true,
+        movies: movies
       });
+    })
+    return 
+  }
+  static async postMovies(req, res, next) {
+    console.log(req.body)
+    Movie.create(req.body)
+    .then(movie => {
+      res.status(200).json({
+        status: 200,
+        success: true,
+        movie: movie
+      })
+    }) 
   }
 }
 

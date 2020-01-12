@@ -3,7 +3,8 @@ const UserModel = require('./models/user')
 // const WatchedMovieModel = require('./models/watched_movie')
 const MovieModel = require('./models/movie')
 
-const sequelize = new Sequelize('codementor', 'root', 'root', {
+const sequelize = new Sequelize('test', 'root', 'root', {
+  // host: 'localhost',
   dialect: 'sqlite',
   storage: './database.sqlite',
   pool: {
@@ -17,7 +18,7 @@ const sequelize = new Sequelize('codementor', 'root', 'root', {
 const User = UserModel(sequelize, Sequelize)
 const WatchedMovie = sequelize.define('watched_movie', {
   id: {
-      type: type.INTEGER,
+      type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
@@ -30,7 +31,7 @@ User.belongsToMany(Movie, { through: WatchedMovie, unique: false })
 Movie.belongsToMany(User, { through: WatchedMovie, unique: false })
 
 
-sequelize.sync({ force: true })
+sequelize.sync()
   .then(() => {
     console.log(`Database & tables created!`)
   })
