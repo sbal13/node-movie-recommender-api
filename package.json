@@ -2,9 +2,9 @@
   "name": "movie-recommender-api",
   "version": "1.0.0",
   "description": "Movie Recommender API",
-  "main": "index.js",
+  "main": "live/index.js",
   "scripts": {
-    "test": "test"
+    "start": "node live/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sbal13/node-movie-recommender-api#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-group-routes": "^1.1.0"
   }
 }

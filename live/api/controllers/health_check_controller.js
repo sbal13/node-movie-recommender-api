@@ -12,7 +12,6 @@ class HealthCheckController {
    */
   static async getHealthCheck(req, res, next) {
     return res.status(200).json({
-        data,
         status: 200,
         success: true
       });
