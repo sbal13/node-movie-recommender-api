@@ -5,7 +5,7 @@ const MovieModel = require('./models/movie')
 
 const sequelize = new Sequelize('codementor', 'root', 'root', {
   dialect: 'sqlite',
-  storage: './database.sqlite'
+  storage: './database.sqlite',
   pool: {
     max: 10,
     min: 0,
@@ -15,7 +15,15 @@ const sequelize = new Sequelize('codementor', 'root', 'root', {
 })
 
 const User = UserModel(sequelize, Sequelize)
-const WatchedMovie = sequelize.define('watched_movie', {})
+const WatchedMovie = sequelize.define('watched_movie', {
+  id: {
+      type: type.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+  rating: Sequelize.BOOLEAN
+
+})
 const Movie = MovieModel(sequelize, Sequelize)
 
 User.belongsToMany(Movie, { through: WatchedMovie, unique: false })
@@ -29,5 +37,6 @@ sequelize.sync({ force: true })
 
 module.exports = {
   User,
-  Movie
+  Movie,
+  WatchedMovie
 }

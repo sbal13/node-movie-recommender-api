@@ -4,7 +4,7 @@
   "description": "Movie Recommender API",
   "main": "live/index.js",
   "scripts": {
-    "start": "node live/index.js"
+    "start": "nodemon live/index.js"
   },
   "repository": {
     "type": "git",
